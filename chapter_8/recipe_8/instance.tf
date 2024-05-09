@@ -23,6 +23,9 @@ resource "aws_instance" "this" {
   tags = {
     "Patch Group" = "production"
   }
+  metadata_options {
+    http_tokens = "required"
+  }
 }
 
 output "instance_id" {

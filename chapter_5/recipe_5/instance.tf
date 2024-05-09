@@ -76,6 +76,9 @@ resource "aws_instance" "web" {
   key_name             = aws_key_pair.key.key_name
   security_groups      = [aws_security_group.instance.id]
   subnet_id            = aws_subnet.private[0].id
+  metadata_options {
+    http_tokens = "required"
+  }
 }
 
 resource "aws_security_group" "instance" {
